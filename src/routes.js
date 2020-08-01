@@ -1,33 +1,17 @@
-const routes = require("express").Router();
+const routes = require('express').Router();
+const userController = require('./app/controllers/UserController');
+const validatorMid = require('./app/middlewares/validators');
+const jwtMid = require('./app/middlewares/jwt');
 
-//RECEBE DOIS VALORES E RETORNA A SOMA DE AMBOS
-routes.post("/exec01", (req, res) => {
-    soma = req.body.valor1 + req.body.valor2
-    console.log(soma);
-    return res.json({Resposta: soma});
-});
+routes.post('/users', validatorMid.userCreateValidator, userController.store);
+routes.post('/login', userController.auth);
 
-//RECEBE NOME, SOBRENOME E IDADE E RETORNA UMA STRING COM TAIS DADOS
-routes.post("/exec02", (req, res) => {
-    const { nome, sobrenome, idade } = req.body;
-    return res.json({Resposta: "Meu nome é " + nome + " " + sobrenome + " e tenho " + idade + " anos"});
-});
+routes.use(jwtMid);
 
-//RETORNA 0 OU 1
-routes.get("/exec03", (req, res) => {
-    numero = Math.random();
-    if (numero < 0.5){
-        return res.json(0);
-    }
-    return res.json(1);
-});
-
-//RECEBE UM NUMERO COMO PARÂMETRO E RETORNA SE O MESMO É PAR
-routes.get("/exec04/:num", (req, res) => {
-    if (req.params.num % 2 == 0){
-        return res.json("Numero Par");
-    }
-    return res.json("Numero impar");
-});
+routes.delete('/users/:id', userController.destroy);
+routes.put('/users', validatorMid.userUpdateValidator, userController.update);
+routes.get('/users', userController.index);
+routes.get('/users/:id', userController.show);
+routes.put('/users/:id', userController.update);
 
 module.exports = routes;
