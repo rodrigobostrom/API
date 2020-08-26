@@ -1,30 +1,31 @@
-# API
+## API
 
-## Run Node
+### Run Node
 ```
 npm start
 ```
 
-## Run Nodemon
+### Run Nodemon
 ```
 npm run dev
 ```
-## Run Lint
+
+### Run Lint
 ```
 npm run lint
 ```
 
-## Setup PM2 - Install PM2
+### Setup PM2 - Install PM2
 ```
 npm run setup
 ```
 
-## Run PM2
+### Run PM2
 ```
 npm run pm2
 ```
 
-# ENV
+## ENV
 Copiar arquivo **.env** do arquivo **.env.example**
 
 ```
