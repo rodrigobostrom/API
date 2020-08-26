@@ -1,29 +1,34 @@
-# TESTE COM NODE JS
+# API
 
-## EXEMPLOS DE CÓDIGOS PARA TESTE DE API
-
-### Comandos
-
-Rodar API
+## Run Node
 ```
 npm start
 ```
 
-Rodar API com Nodemon
+## Run Nodemon
 ```
 npm run dev
 ```
+## Run Lint
+```
+npm run lint
+```
 
-### Setup PM2 - Install PM2
+## Setup PM2 - Install PM2
+```
+npm run setup
+```
+
+## Run PM2
 ```
 npm run pm2
 ```
 
-## ENV
+# ENV
 Copiar arquivo **.env** do arquivo **.env.example**
 
-REQ -> API
+```
+MONGO_URL=
+JWT_KEY=
+```
 
-ROUTES.JS -> CONTROLLER -> MODEL -> DATABASE
-
-ROUTES.JS -> MIDDLEWARE - (VALIDAÇÃO, AUTENTICAÇÃO, ETC) <-> CONTROLLER
